@@ -1,4 +1,4 @@
-.idea/
+.idea
 .venv/
 *.pyc
 *.pyo
@@ -6,6 +6,16 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+.git
+.gitignore
+
+.dockerignore
+
+Dockerfile
+docker-compose.yml
+
+*.md
 
 .env
 .env.mysql
