@@ -15,6 +15,9 @@
 ---
 
 ## 설치 & 실행 방법
+Docker 를 이용해서 `FastAPI 서버`와 `MySQL 서버`를 실행시킨다.
+</br></br>
+
 1. **환경변수 파일 설정:**
    - `short-url/` 디렉토리 하위에 `.env` 파일, `.env.mysql` 파일을 설정한다.
 2. **Docker Compose 로 실행:**
