@@ -1,6 +1,7 @@
 services:
     backend-api:
         build: .
+        container_name: short-url-backend-api
         env_file:
             - .env
         ports:
@@ -15,6 +16,7 @@ services:
             - short-url-network
     mysql:
         image: mysql:8.0
+        container_name: short-url-mysql
         env_file:
             - .env.mysql
         environment:
