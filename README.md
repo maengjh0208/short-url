@@ -1,20 +1,18 @@
-# URL 단축 서비스
+## URL 단축 서비스
 
----
-
-## 프로젝트 개요
+### 프로젝트 개요
 * 긴 URL 을 짧은 URL 로 변환해주는 서비스를 제공한다.
 
 ---
 
-##  시스템 요구사항
+###  시스템 요구사항
 * **Language:** Python 3.12
 * **Framework:** FastAPI
 * **Database:** MySQL 8.0
 
 ---
 
-## 설치 & 실행 방법
+### 설치 & 실행 방법
 Docker 를 이용해서 `FastAPI 서버`와 `MySQL 서버`를 실행시킨다.
 </br></br>
 
