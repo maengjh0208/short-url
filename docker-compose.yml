@@ -1,7 +1,7 @@
 services:
-    backend-api:
+    backend:
         build: .
-        container_name: short-url-backend-api
+        container_name: short-url-backend
         env_file:
             - .env
         ports:
@@ -27,7 +27,7 @@ services:
         ports:
             - "3306:3306"
         volumes:
-            - mysql_data:/var/lib/mysql
+            - mysql-data:/var/lib/mysql
         networks:
             - short-url-network
         healthcheck:
@@ -38,7 +38,7 @@ services:
 
 volumes:
     logs:
-    mysql_data:
+    mysql-data:
 
 networks:
     short-url-network:
