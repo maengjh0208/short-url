@@ -15,7 +15,6 @@
 - Alembic (DB 마이그레이션)
 - Pydantic (데이터 검증)
 ```
-<br>
 
 **Database:**
 ```aiignore
@@ -25,7 +24,7 @@
 
 ---
 
-## 설치 & 실행 방법
+## 설치 및 실행 방법
 Docker 를 이용해서 `FastAPI`와 `MySQL`를 실행시킨다.
 
 1. **환경변수 파일 설정:**
@@ -37,11 +36,5 @@ Docker 를 이용해서 `FastAPI`와 `MySQL`를 실행시킨다.
    ```
 3. **로컬에서 실행 시 API 요청 테스트:**
    - GET http://127.0.0.1:8000/health-check
-   - 응답 성공 시:
-       ```json
-       {
-           "status": "Success!"
-       }
-       ```
 
 ---

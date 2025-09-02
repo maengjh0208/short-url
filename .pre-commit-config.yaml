@@ -1,0 +1,23 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: trailing-whitespace  # 줄 끝 공백 제거
+      - id: end-of-file-fixer    # 파일 끝 개행 추가
+      - id: check-json           # JSON 문법 검사
+      - id: check-yaml           # YAML 문법 검사
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.3.0
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/pycqa/isort  # import 순서 검증
+    rev: 5.13.2
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
