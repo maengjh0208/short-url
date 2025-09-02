@@ -38,3 +38,12 @@ Docker 를 이용해서 `FastAPI`와 `MySQL`를 실행시킨다.
    - GET http://127.0.0.1:8000/health-check
 
 ---
+
+## Coding Style
+- python code style 을 자동으로 맞추기 위해 `flake8`, `black`, `isort` 을 사용한다.
+- 변경된 소스 코드가 github 에 commit 되기 전에, pre-commit 으로 위 라이브러리들이 실행되도록 한다.
+- 아래와 명령어를 한번 실행하면, commit 명령어를 실행할 떄마다 자동으로 코드 점검이 진행된다.
+  ```
+  $ pip install pre-commit
+  $ pre-commit install
+  ```
