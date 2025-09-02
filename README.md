@@ -47,3 +47,18 @@ Docker 를 이용해서 `FastAPI`와 `MySQL`를 실행시킨다.
   $ pip install pre-commit
   $ pre-commit install
   ```
+
+---
+
+## SQLAlchemy 모델 자동 생성 방법
+`sqlacodegen` 모듈을 이용하면 SQLAlchemy 모델을 수기로 작성하지 않고, 현재 바라보고 있는 DB 를 기준으로 해서 모델을 자동으로 생성할 수 있다.
+
+- `scripts/generate-models.sh`: 모델 자동 생성 스크립트가 작성되어 있음
+- `Makefile`: Makefile 에 작성된 명령어를 통해 위 스크립트를 간단히 실행시킬 수 있음
+
+**실행 방법:**
+```
+$ make generate-models
+```
+
+---
