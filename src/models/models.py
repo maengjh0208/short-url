@@ -1,12 +1,28 @@
 import datetime
 
-from sqlalchemy import TIMESTAMP, Index, Integer, String, text
+from sqlalchemy import TIMESTAMP, Index, Integer, String, inspect, text
 from sqlalchemy.dialects.mysql import TINYINT
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
 class Base(DeclarativeBase):
-    pass
+    def __repr__(self):
+        class_name = self.__class__.__name__
+
+        inspector = inspect(self.__class__)
+        columes = inspector.columns.keys()
+
+        attrs = []
+        for colume in columes:
+            value = getattr(self, colume, None)
+
+            if isinstance(value, str):
+                attrs.append(f"{colume}='{value}'")
+            else:
+                attrs.append(f"{colume}={value}")
+
+        attrs_str = ", ".join(attrs)
+        return f"<{class_name}({attrs_str})>"
 
 
 class Users(Base):
