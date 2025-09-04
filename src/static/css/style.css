@@ -73,17 +73,26 @@ body {
     margin-right: 5px;
 }
 
+
 .container .form-container .form-item form .btn {
     cursor: pointer;
     display: block;
     padding: 10px;
-    width: 250px;
+    width: 274px;
     margin: 5px;
     text-align: center;
     border: 2px solid #1C6663;
     background-color: #1C6663;
     color: white;
     opacity: 1;
+    font-family: 'Roboto';
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
 }
 
 .container .form-container .form-item form .btn:hover {
