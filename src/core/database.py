@@ -32,8 +32,9 @@ async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
         try:
             yield session
             await session.commit()
-        except Exception:
+        except Exception as e:
             await session.rollback()
-            raise
+            # TODO: error exception 처리 필요
+            raise e
         finally:
             await session.close()
