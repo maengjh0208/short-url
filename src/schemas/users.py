@@ -2,6 +2,8 @@ from typing import Self
 
 from pydantic import BaseModel, EmailStr, Field, model_validator
 
+from src.core.exception_handlers import ErrorCode, ValidationException
+
 
 class SignUpRequest(BaseModel):
     email: EmailStr = Field(..., description="유저 이메일")
@@ -12,5 +14,5 @@ class SignUpRequest(BaseModel):
     @model_validator(mode="after")
     def check_password(self) -> Self:
         if self.password != self.confirm_password:
-            raise ValueError("비밀번호가 일치하지 않습니다.")
+            raise ValidationException(error_code=ErrorCode.INVALID_PASSWORD)
         return self

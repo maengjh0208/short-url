@@ -10,12 +10,11 @@ from starlette.exceptions import HTTPException
 
 from src.core.templates import templates
 
-""" 에러 코드 정의 """
-
 
 class ErrorCode(Enum):
     # status code: 400
     INVALID_REQUEST = ("E4000", "잘못된 요청입니다.")
+    INVALID_PASSWORD = ("E4001", "비밀번호가 일치하지 않습니다.")
 
     # status code: 401
     UNAUTHORIZED = ("E4010", "인증이 필요합니다.")
@@ -36,9 +35,6 @@ class ErrorCode(Enum):
     def __init__(self, code: str, message: str):
         self.code = code
         self.message = message
-
-
-""" 예외 처리 관련 클래스 정의 """
 
 
 class BaseCustomException(Exception):
@@ -146,9 +142,6 @@ class InternalServerException(BaseCustomException):
             error_code=error_code,
             detail=detail,
         )
-
-
-""" exception handler 등록 """
 
 
 def setup_exception_handlers(app: FastAPI) -> None:
