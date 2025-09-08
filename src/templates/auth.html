@@ -18,6 +18,11 @@
             </div>
         </div>
         <div class="form-container">
+            {% if message %}
+            <div class="login-message">
+                {{ message }}
+            </div>
+            {% endif %}
             <div class="form-item">
                 <div class="fire">
                     <svg class="flameSVG" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
