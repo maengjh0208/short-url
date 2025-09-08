@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from src.core.exception_handlers import InternalServerException
 from src.models.models import Users
 
 
@@ -15,7 +16,7 @@ class UserDTO:
 
 
 class UserRepository:
-    async def get_by_email(self, session: AsyncSession, email: str):
+    async def get_by_email(self, session: AsyncSession, email: str) -> UserDTO:
         query = select(
             Users.id,
             Users.email,
@@ -48,5 +49,4 @@ class UserRepository:
             session.add(user)
             await session.flush()
         except Exception as e:
-            # TODO: 에러를 상위 함수로 전달하는 것과 별개로, 에러가 발생된 메서드에서 발생 원인을 로깅 해줘야 할 것 같다.
-            raise Exception(f"회원 생성 실패 || ERROR: {e}")
+            raise InternalServerException(detail={"message": e.args[0]})

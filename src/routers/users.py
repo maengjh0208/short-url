@@ -24,14 +24,8 @@ async def show_login_page(request: Request) -> HTMLResponse:
     description="회원 가입",
 )
 async def signup(form_data: Annotated[SignUpRequest, Form()]):
-    try:
-        await user_service.signup(
-            email=form_data.email,
-            username=form_data.username,
-            password=form_data.password,
-        )
-
-        # TODO: 회원가입이 완료되었다는 Template 을 노출
-    except Exception:
-        # TODO: 회원가입이 실패되었다는 Template 을 노출
-        raise Exception("회원가입 실패!")
+    await user_service.signup(
+        email=form_data.email,
+        username=form_data.username,
+        password=form_data.password,
+    )
