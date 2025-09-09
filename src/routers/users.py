@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Form, Query, Request
+from fastapi import APIRouter, Form, Request
 from starlette import status
 from starlette.responses import HTMLResponse, RedirectResponse
 
@@ -16,15 +16,15 @@ router = APIRouter()
     description="로그인 및 회원가입 페이지",
     response_class=HTMLResponse,
 )
-async def show_login_page(
+async def get_login_and_signup_page(
     request: Request,
-    message: Annotated[str | None, Query()] = None,
+    is_signup_success: bool = False,
 ) -> HTMLResponse:
     return templates.TemplateResponse(
         request=request,
-        name="auth.html",
+        name="login_and_signup.html",
         context={
-            "message": message,
+            "message": "회원가입이 완료되었습니다. 로그인해주세요." if is_signup_success else None,
         },
     )
 
@@ -41,6 +41,4 @@ async def signup(form_data: Annotated[SignUpRequest, Form()]) -> RedirectRespons
         password=form_data.password,
     )
 
-    return RedirectResponse(
-        url="/users/login?message=회원가입이 완료되었습니다.\n로그인해주세요.", status_code=status.HTTP_302_FOUND
-    )
+    return RedirectResponse(url="/users/login?is_signup_success=true", status_code=status.HTTP_302_FOUND)
