@@ -50,7 +50,6 @@ async def login(form_data: Annotated[LoginRequest, Form()]) -> RedirectResponse:
         value=result.access_token,
         max_age=settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         httponly=True,
-        secure=True,
         samesite="lax",
     )
 
@@ -59,7 +58,6 @@ async def login(form_data: Annotated[LoginRequest, Form()]) -> RedirectResponse:
         value=result.refresh_token,
         max_age=settings.JWT_REFRESH_TOKEN_EXPIRE_DAYS * 24 * 60 * 60,
         httponly=True,
-        secure=True,
         samesite="lax",
     )
 
