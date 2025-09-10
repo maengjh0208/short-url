@@ -16,3 +16,13 @@ class SignUpRequest(BaseModel):
         if self.password != self.confirm_password:
             raise ValidationException(error_code=ErrorCode.INVALID_PASSWORD)
         return self
+
+
+class LoginRequest(BaseModel):
+    email: EmailStr = Field(..., description="유저 이메일")
+    password: str = Field(..., min_length=8, max_length=100, description="비밀번호")
+
+
+class LoginResponse(BaseModel):
+    access_token: str = Field(..., description="JWT Access Token")
+    refresh_token: str = Field(..., description="JWT Refresh Token")

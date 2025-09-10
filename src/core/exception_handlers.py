@@ -18,6 +18,7 @@ class ErrorCode(Enum):
 
     # status code: 401
     UNAUTHORIZED = ("E4010", "인증이 필요합니다.")
+    UNAUTHORIZED_LOGIN = ("E4011", "이메일 또는 패스워드가 일치하지 않습니다.")
 
     # status code: 403
     FORBIDDEN = ("E4030", "접근 권한이 없습니다.")

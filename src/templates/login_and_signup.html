@@ -53,7 +53,7 @@
 
                     </svg>
                 </div>
-                <form class="form-log-in animated">
+                <form action="/users/login" method="POST" class="form-log-in animated">
                     {% if message %}
                     <div class="login-message">
                         {{ message }}
@@ -61,7 +61,7 @@
                     {% endif %}
                     <input name="email" placeholder="Email" type="text"/>
                     <input name="password" placeholder="Password" type="Password"/>
-                    <div class="btn">Log in</div>
+                    <button type="submit" class="btn">Log in</button>
                 </form>
                 <form action="/users/signup" method="POST" class="form-sign-up animated">
                     <input name="email" placeholder="Email" type="text"/>

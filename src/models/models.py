@@ -1,5 +1,5 @@
 import datetime
-from typing import List
+from typing import List, Optional
 
 from sqlalchemy import TIMESTAMP, ForeignKeyConstraint, Index, Integer, String, Text, inspect, text
 from sqlalchemy.dialects.mysql import TINYINT
@@ -49,19 +49,15 @@ class RefreshTokens(Base):
         ForeignKeyConstraint(
             ["user_id"], ["users.id"], ondelete="CASCADE", onupdate="CASCADE", name="fk_refresh_tokens_user_id"
         ),
-        Index("idx_expires_at", "expires_at"),
-        Index("idx_is_active", "is_active"),
-        Index("idx_user_id", "user_id"),
+        Index("user_id", "user_id", unique=True),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     user_id: Mapped[int] = mapped_column(Integer)
-    refresh_token: Mapped[str] = mapped_column(Text(collation="utf8mb4_unicode_ci"))
-    expires_at: Mapped[datetime.datetime] = mapped_column(TIMESTAMP)
-    is_active: Mapped[int] = mapped_column(TINYINT(1), server_default=text("'1'"))
     created_at: Mapped[datetime.datetime] = mapped_column(TIMESTAMP, server_default=text("CURRENT_TIMESTAMP"))
     updated_at: Mapped[datetime.datetime] = mapped_column(
         TIMESTAMP, server_default=text("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     )
+    refresh_token: Mapped[Optional[str]] = mapped_column(Text(collation="utf8mb4_unicode_ci"))
 
     user: Mapped["Users"] = relationship("Users", back_populates="refresh_tokens")
