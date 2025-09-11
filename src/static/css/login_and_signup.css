@@ -1,15 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto';
-}
-
 .outer-container {
     background-color: #053D48;
-    width: 100vw;
-    height: 100vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,20 +9,20 @@ body {
 
 .container {
     background-color: #1C6663;
-    width: 600px;
-    height: 320px;
+    width: 37.5rem; /* 600px */
+    height: 20rem; /* 320px */
     display: flex;
 }
 
 .container .form-container.active {
-    margin-left: 275px;
+    margin-left: 17.1875rem; /* 275px */
 }
 
 .container .form-container {
-    margin-left: 25px;
+    margin-left: 1.5625rem; /* 25px */
     background-color: white;
-    height: 430px;
-    width: 305px;
+    height: 26.875rem; /* 430px */
+    width: 19.0625rem; /* 305px */
     align-self: center;
     display: flex;
     align-items: center;
@@ -42,13 +33,13 @@ body {
 }
 
 .container .form-container .fire {
-    top: -75px;
+    top: -4.6875rem; /* -75px */
     position: absolute;
     z-index: 0;
 }
 
 .container .form-container .fire svg {
-    width: 300px;
+    width: 18.75rem; /* 300px */
     height: auto;
     visibility: hidden;
 }
@@ -59,34 +50,33 @@ body {
 }
 
 .container .form-container .form-item form.form-sign-up {
-    margin-top: 30px;
+    margin-top: 1.875rem; /* 30px */
     display: none;
 }
 
 .container .form-container .form-item form input {
     display: block;
-    padding: 10px;
-    width: 250px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+    padding: 0.625rem; /* 10px */
+    width: 15.625rem; /* 250px */
+    margin-top: 0.3125rem; /* 5px */
+    margin-bottom: 0.625rem; /* 10px */
+    margin-left: 0.3125rem; /* 5px */
+    margin-right: 0.3125rem; /* 5px */
 }
-
 
 .container .form-container .form-item form .btn {
     cursor: pointer;
     display: block;
-    padding: 10px;
-    width: 274px;
-    margin: 5px;
+    padding: 0.625rem; /* 10px */
+    width: 17.125rem; /* 274px */
+    margin: 0.3125rem; /* 5px */
     text-align: center;
-    border: 2px solid #1C6663;
+    border: 0.125rem solid #1C6663; /* 2px */
     background-color: #1C6663;
     color: white;
     opacity: 1;
     font-family: 'Roboto';
-    font-size: 14px;
+    font-size: 0.875rem; /* 14px */
     box-sizing: border-box;
     outline: none;
     -webkit-appearance: none;
@@ -115,28 +105,28 @@ body {
     align-items: center;
     flex-direction: column;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */
     position: relative;
     z-index: 1;
 }
 
 .container .info-container .log-in {
     text-align: center;
-    margin-right: 40px;
+    margin-right: 2.5rem; /* 40px */
 }
 
 .container .info-container .sign-up {
-    margin-left: 40px;
+    margin-left: 2.5rem; /* 40px */
     text-align: center;
 }
 
 .container .info-container .btn {
     cursor: pointer;
     background-color: transparent;
-    width: 60px;
-    padding: 10px 15px;
-    border: 1px solid white;
-    font-size: 16px;
+    width: 3.75rem; /* 60px */
+    padding: 0.625rem 0.9375rem; /* 10px 15px */
+    border: 0.0625rem solid white; /* 1px */
+    font-size: 1rem; /* 16px */
     opacity: 1;
 }
 
@@ -146,14 +136,14 @@ body {
 
 .tree {
     height: auto;
-    width: 300px;
+    width: 18.75rem; /* 300px */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
     z-index: 0;
-    bottom: 30px;
+    bottom: 1.875rem; /* 30px */
 }
 
 .tree .leaves {
@@ -163,42 +153,42 @@ body {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 100px 100px 100px;
+    border-width: 0 6.25rem 6.25rem 6.25rem; /* 0 100px 100px 100px */
     border-radius: 30%;
     border-color: transparent transparent #6B8E23 transparent;
     position: relative;
-    bottom: 40px;
+    bottom: 2.5rem; /* 40px */
 }
 
 .tree .leaves:before {
     content: " ";
     border-style: solid;
-    border-width: 0 65px 100px 65px;
+    border-width: 0 4.0625rem 6.25rem 4.0625rem; /* 0 65px 100px 65px */
     border-radius: 30%;
     border-color: transparent transparent #6B8E23 transparent;
     position: absolute;
-    left: -65px;
-    top: -100px;
+    left: -4.0625rem; /* -65px */
+    top: -6.25rem; /* -100px */
 }
 
 .tree .leaves:after {
     content: " ";
     border-style: solid;
-    border-width: 0 85px 100px 85px;
+    border-width: 0 5.3125rem 6.25rem 5.3125rem; /* 0 85px 100px 85px */
     border-radius: 30%;
     border-color: transparent transparent #6B8E23 transparent;
     position: absolute;
-    left: -85px;
-    top: -50px;
+    left: -5.3125rem; /* -85px */
+    top: -3.125rem; /* -50px */
 }
 
 .tree .trunk {
     z-index: 0;
-    width: 100px;
-    height: 50px;
+    width: 6.25rem; /* 100px */
+    height: 3.125rem; /* 50px */
     background-color: #8B4513;
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
 }
 
 .login-message {
@@ -206,5 +196,5 @@ body {
     color: #155724;
     text-align: center;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem; /* 10px */
 }

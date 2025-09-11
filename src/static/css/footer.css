@@ -1,14 +1,14 @@
 /* Simple Footer */
 .footer {
     background: #053D48;
-    color: white;
     margin-top: 0.5px;
 }
 
 .footer-container {
     max-width: 1200px;
+    min-height: 2vh;
+    padding: 1.5rem 2rem;
     margin: 0 auto;
-    padding: 2rem 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,8 +40,9 @@
 
 .footer-bottom {
     background: #041f24;
-    padding: 1rem 0;
+    min-height: 0.5vh;
     text-align: center;
+    padding: 1rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -49,18 +50,4 @@
     margin: 0;
     color: #999;
     font-size: 0.9rem;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-    }
-
-    .footer-right {
-        flex-direction: column;
-        gap: 1rem;
-    }
 }
