@@ -1,10 +1,11 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Form, Request
+from fastapi import APIRouter, Depends, Form, Request
 from starlette import status
 from starlette.responses import HTMLResponse, RedirectResponse
 
 from src.core.config import settings
+from src.core.dependency import get_current_user
 from src.core.templates import templates
 from src.schemas.users import LoginRequest, SignUpRequest
 from src.services.users import user_service
@@ -41,8 +42,7 @@ async def login(form_data: Annotated[LoginRequest, Form()]) -> RedirectResponse:
         password=form_data.password,
     )
 
-    # TODO: 경로 / 인 메인 페이지 추가해야 함
-    response = RedirectResponse(url="/", status_code=status.HTTP_302_FOUND)
+    response = RedirectResponse(url="/users/dashboard", status_code=status.HTTP_302_FOUND)
 
     # TODO: 토큰 관리는 추후 middleware 같은 곳으로 옮겨야 하지 않을까
     response.set_cookie(
@@ -77,3 +77,18 @@ async def signup(form_data: Annotated[SignUpRequest, Form()]) -> RedirectRespons
     )
 
     return RedirectResponse(url="/users/login?is_signup_success=true", status_code=status.HTTP_302_FOUND)
+
+
+@router.get("/dashboard", description="메인 대시보드")
+async def get_dashboard(
+    request: Request,
+    user_info=Depends(get_current_user),
+):
+    return templates.TemplateResponse(
+        request=request,
+        name="dashboard.html",
+        context={
+            "username": user_info["username"],
+            "is_member": True,
+        },
+    )

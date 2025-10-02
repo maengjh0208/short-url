@@ -1,0 +1,97 @@
+{% extends "/layout/main_layout.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', path='/css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="outer-container">
+    <div class="container">
+        <header class="header">
+            <h1>🔗 ShortURL</h1>
+            <p>안녕하세요, <strong>{{username}}님</strong>! 오늘도 효율적인 URL 관리하세요.</p>
+        </header>
+
+        <div class="main-content">
+            <section class="url-input-section">
+                <h2>📎 새 URL 단축하기</h2>
+                <div class="input-group">
+                    <input type="url" class="url-input" placeholder="https://example.com/very/long/url" id="urlInput">
+                    <button class="shorten-btn" onclick="shortenUrl()">단축하기</button>
+                </div>
+                <div class="result-display" id="resultDisplay">
+                    <strong>생성된 단축 URL:</strong>
+                    <div style="margin-top: 10px;">
+                        <a href="#" id="shortUrl" target="_blank">bit.ly/abc123</a>
+                        <button onclick="copyUrl()" style="margin-left: 10px; padding: 5px 10px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            복사
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="stats-sidebar">
+                <div class="stats-card">
+                    <h3>📊 내 URL 현황</h3>
+                    <div class="stat-item">
+                        <span>총 생성한 URL</span>
+                        <span class="stat-value">23개</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>이번 달 클릭수</span>
+                        <span class="stat-value">1,247번</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>오늘 클릭수</span>
+                        <span class="stat-value">45번</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <section class="recent-urls">
+            <h3>🕒 최근 생성한 URL</h3>
+            <div class="url-item">
+                <div class="url-info">
+                    <a href="#" class="short-url">bit.ly/abc123</a>
+                    <div class="original-url">https://www.naver.com/search/blog/programming</div>
+                </div>
+                <div class="url-stats">
+                    <div class="click-count">45클릭</div>
+                    <div>어제 생성</div>
+                </div>
+            </div>
+            <div class="url-item">
+                <div class="url-info">
+                    <a href="#" class="short-url">bit.ly/def456</a>
+                    <div class="original-url">https://www.youtube.com/watch/programming-tutorial</div>
+                </div>
+                <div class="url-stats">
+                    <div class="click-count">12클릭</div>
+                    <div>2일 전 생성</div>
+                </div>
+            </div>
+            <div class="url-item">
+                <div class="url-info">
+                    <a href="#" class="short-url">bit.ly/ghi789</a>
+                    <div class="original-url">https://github.com/user/awesome-project</div>
+                </div>
+                <div class="url-stats">
+                    <div class="click-count">8클릭</div>
+                    <div>3일 전 생성</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="quick-actions">
+            <a href="#" class="action-btn">🔍 내 URL 관리</a>
+            <a href="#" class="action-btn">📈 상세 통계</a>
+            <a href="#" class="action-btn">⚙️ 설정</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', path='/js/dashboard.js') }}"></script>
+{% endblock %}

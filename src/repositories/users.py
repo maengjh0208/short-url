@@ -44,6 +44,28 @@ class UserRepository:
             else None
         )
 
+    async def get_user_by_id(self, session: AsyncSession, user_id: int) -> UserDTO:
+        query = select(
+            Users.id,
+            Users.email,
+            Users.name,
+            Users.hashed_password,
+        ).where(Users.id == user_id)
+
+        result = await session.execute(query)
+        result = result.one_or_none()
+
+        return (
+            UserDTO(
+                id=result.id,
+                email=result.email,
+                username=result.name,
+                hashed_password=result.hashed_password,
+            )
+            if result
+            else None
+        )
+
     async def create_user(self, session: AsyncSession, email: str, username: str, hashed_password: str) -> None:
         try:
             user = Users(
